@@ -1,273 +1,213 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>(روبلوكس ستوديو (كورس VFX — من الصفر لاحتراف المؤثرات البصرية</title>
-<meta name="description" content="كورس متكامل تتعلم فيه الـ VFX خطوة خطوة: شنو هو، شنو الاختصاصات، وشنو البرامج اللي تحتاجها">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Workflow Portal</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      color: #58a6ff;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    .controls {
+      text-align: center;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #238636;
+      color: white;
+      transition: 0.2s;
+      font-weight: bold;
+    }
+    button:hover { background: #2ea043; transform: translateY(-1px); }
+    button:disabled { background: #484f58; cursor: not-allowed; transform: none; }
+    .refresh { background: #1f6feb; }
+    .refresh:hover { background: #388bfd; }
+    .cancel { background: #da3633; padding: 6px 14px; font-size: 13px; }
+    .cancel:hover { background: #f85149; }
+    .delete { background: #6e7681; padding: 6px 14px; font-size: 13px; }
+    .delete:hover { background: #8b949e; }
+    
+    table {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: #161b22;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 14px 16px;
+      text-align: right;
+      border-bottom: 1px solid #30363d;
+    }
+    th {
+      background: #21262d;
+      color: #58a6ff;
+      font-size: 14px;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: #1c2128; }
+    
+    .status {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .queued      { background: #9e6a03; color: #fff; }
+    .in_progress { background: #1f6feb; color: #fff; }
+    .completed   { background: #238636; color: #fff; }
+    .failure     { background: #da3633; color: #fff; }
+    .ready       { background: #238636; color: #fff; }
+    
+    .creds {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      background: #0d1117;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+    }
+    .creds div { margin: 3px 0; }
+    .creds .label { color: #8b949e; }
+    .creds .value { color: #58a6ff; }
+    
+    .empty {
+      text-align: center;
+      color: #8b949e;
+      padding: 60px 20px;
+      font-size: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      th, td { padding: 10px 8px; font-size: 13px; }
+      .creds { font-size: 11px; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="wrap">
-    <a href="#top" class="brand">VFX<span class="dot">.</span>كورس</a>
-    <div class="navlinks">
-      <a href="#what">شنو هو VFX</a>
-      <a href="#tracks">الاختصاصات</a>
-      <a href="#roadmap">خطة الأسابيع</a>
-      <a href="#tools">الأدوات</a>
-    </div>
-    <a href="#roadmap" class="nav-cta">ابدأ الكورس</a>
+  <h1>🚀 بوابة تشغيل الأجهزة</h1>
+
+  <div class="controls">
+    <button id="runBtn">▶ تشغيل الأجهزة</button>
+    <button id="refreshBtn" class="refresh">🔄 تحديث</button>
   </div>
-</nav>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <div class="hero-eyebrow">كورس مفتوح — بالهجة العراقية والسعودية والفصحى</div>
-      <h1>تعلم <span>VFX</span> من الصفر، بأسلوب واضح وبدون تعقيد</h1>
-      <p>هذا الكورس يوخذك خطوة بخطوة: تعرف شنو المؤثرات البصرية، شلون تشتغل، شنو الاختصاصات الموجودة، وشنو البرامج اللي لازم تتعلمها عشان تدخل هذا المجال باحتراف.</p>
-      <div class="hero-actions">
-        <a href="#roadmap" class="btn btn-primary">شوف خطة الأسابيع</a>
-        <a href="#what" class="btn btn-ghost">وش يعني VFX أصلاً؟</a>
-      </div>
-      <div class="hero-stats">
-        <div><b>٥</b><span>اختصاصات رئيسية</span></div>
-        <div><b>١٢</b><span>أسبوع تدريب</span></div>
-        <div><b>٦</b><span>برامج أساسية</span></div>
-      </div>
-    </div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>الحالة</th>
+        <th>بيانات الاتصال</th>
+        <th>إجراءات</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
 
-    <div class="scope">
-      <div class="scope-head">
-        <span>COMP // VIEWPORT_01</span>
-        <div class="scope-dots"><span></span><span></span><span></span></div>
-      </div>
-      <svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="رسم توضيحي لشاشة خضراء يتم استبدالها بمشهد آخر">
-        <defs>
-          <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#233042"/>
-            <stop offset="100%" stop-color="#141A21"/>
-          </linearGradient>
-        </defs>
-        <rect x="0" y="0" width="460" height="340" rx="4" fill="#0D1116"/>
-        <!-- left half: green screen raw -->
-        <rect x="14" y="14" width="206" height="312" rx="3" fill="#123A28" stroke="#2B3440"/>
-        <rect x="14" y="14" width="206" height="312" fill="#37E888" opacity="0.9"/>
-        <circle cx="117" cy="150" r="46" fill="#12151A" opacity="0.85"/>
-        <rect x="90" y="196" width="54" height="90" rx="10" fill="#12151A" opacity="0.85"/>
-        <text x="117" y="308" text-anchor="middle" fill="#0B0F13" font-family="Changa, sans-serif" font-size="12" font-weight="700">RAW PLATE</text>
+  <script>
+    const runBtn = document.getElementById('runBtn');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const rows = document.getElementById('rows');
 
-        <!-- right half: composited -->
-        <rect x="240" y="14" width="206" height="312" rx="3" fill="url(#skyGrad)" stroke="#2B3440"/>
-        <circle cx="343" cy="150" r="46" fill="#1B2027" stroke="#37E888" stroke-width="1.5"/>
-        <rect x="316" y="196" width="54" height="90" rx="10" fill="#1B2027" stroke="#37E888" stroke-width="1.5"/>
-        <path d="M240 300 L280 250 L320 290 L360 220 L400 270 L446 240" stroke="#E8A24A" stroke-width="2" fill="none" opacity="0.7"/>
-        <text x="343" y="308" text-anchor="middle" fill="#37E888" font-family="Changa, sans-serif" font-size="12" font-weight="700">FINAL COMP</text>
+    // تشغيل
+    runBtn.onclick = async () => {
+      if (!confirm('تشغيل الأجهزة؟')) return;
+      runBtn.disabled = true;
+      runBtn.textContent = '⏳ جارٍ الإرسال...';
+      try {
+        const res = await fetch('/api/dispatch', { method: 'POST' });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error);
+        setTimeout(loadRuns, 3000);
+      } catch (e) {
+        alert('❌ ' + e.message);
+      }
+      runBtn.disabled = false;
+      runBtn.textContent = '▶ تشغيل الأجهزة';
+    };
 
-        <!-- arrow -->
-        <path d="M226 170 L234 170" stroke="#92A0AF" stroke-width="2"/>
-        <path d="M230 165 L238 170 L230 175" fill="none" stroke="#92A0AF" stroke-width="2"/>
-      </svg>
-    </div>
-  </div>
-</header>
+    refreshBtn.onclick = loadRuns;
 
-<section id="what">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-tag">التعريف</div>
-      <h2>طيب... شنو بالضبط يعني VFX؟</h2>
-      <p>VFX اختصار لـ Visual Effects، يعني المؤثرات البصرية. هاي هي الصنعة اللي يستخدمونها بالأفلام والمسلسلات والإعلانات عشان يسوون مشاهد ما تكدر تصورها بكاميرا عادية — من انفجار مدينة، لدايناصور ماشي بالشارع، لممثل يطير بالهوا.</p>
-    </div>
+    // تحميل النتائج
+    async function loadRuns() {
+      try {
+        const res = await fetch('/api/runs');
+        const data = await res.json();
 
-    <div class="split">
-      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="مخطط يوضح مراحل عمل الـ VFX من التصوير إلى الإخراج النهائي">
-        <rect width="400" height="300" rx="4" fill="#191F27" stroke="#2B3440"/>
-        <g font-family="IBM Plex Sans Arabic, sans-serif" font-size="13" fill="#ECEEF1">
-          <rect x="30" y="34" width="130" height="46" rx="5" fill="#202832" stroke="#2B3440"/>
-          <text x="95" y="62" text-anchor="middle">تصوير حقيقي</text>
+        if (!data.length) {
+          rows.innerHTML = `<tr><td colspan="4" class="empty">لا توجد تشغيلات بعد — اضغط "تشغيل الأجهزة"</td></tr>`;
+          return;
+        }
 
-          <rect x="30" y="120" width="130" height="46" rx="5" fill="#202832" stroke="#2B3440"/>
-          <text x="95" y="148" text-anchor="middle">تتبع وفصل</text>
+        rows.innerHTML = data.map(r => {
+          const status = r.conclusion === 'success' ? 'ready' : (r.status || 'queued');
+          const statusText = r.conclusion ? `${r.status} / ${r.conclusion}` : (r.status || 'queued');
+          
+          return `
+            <tr>
+              <td>${r.run_id || r.id}</td>
+              <td><span class="status ${status}">${statusText}</span></td>
+              <td>
+                ${r.ip ? `
+                  <div class="creds">
+                    <div><span class="label">🌐 IP:</span> <span class="value">${r.ip}</span></div>
+                    <div><span class="label">👤 User:</span> <span class="value">${r.username || '-'}</span></div>
+                    <div><span class="label">🔑 Pass:</span> <span class="value">${r.password || '-'}</span></div>
+                  </div>
+                ` : '<span style="color:#8b949e;">⏳ في انتظار البيانات...</span>'}
+              </td>
+              <td>
+                ${r.run_id ? `<button class="cancel" onclick="cancelRun('${r.run_id}')">إلغاء</button>` : ''}
+                <button class="delete" onclick="deleteRun(${r.id})">🗑</button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      } catch (e) {
+        console.error(e);
+      }
+    }
 
-          <rect x="30" y="206" width="130" height="46" rx="5" fill="#202832" stroke="#2B3440"/>
-          <text x="95" y="234" text-anchor="middle">عناصر ثلاثية الأبعاد</text>
+    async function cancelRun(runId) {
+      if (!confirm('إلغاء هذا التشغيل؟')) return;
+      await fetch(`/api/runs/${runId}/cancel`, { method: 'POST' });
+      loadRuns();
+    }
 
-          <rect x="240" y="120" width="130" height="46" rx="5" fill="#123A28" stroke="#37E888"/>
-          <text x="305" y="148" text-anchor="middle" fill="#37E888">دمج نهائي</text>
+    async function deleteRun(id) {
+      if (!confirm('حذف من الذاكرة؟')) return;
+      await fetch(`/api/runs/${id}`, { method: 'DELETE' });
+      loadRuns();
+    }
 
-          <path d="M160 57 L215 130" stroke="#92A0AF" stroke-width="1.5" fill="none"/>
-          <path d="M160 143 L235 143" stroke="#92A0AF" stroke-width="1.5" fill="none"/>
-          <path d="M160 229 L215 155" stroke="#92A0AF" stroke-width="1.5" fill="none"/>
-        </g>
-      </svg>
-
-      <div>
-        <div class="split-card">
-          <h3>مو أنيميشن عادي</h3>
-          <p>الفرق إن الـ VFX يدمج تصوير حقيقي (ممثل، لوكيشن) مع عناصر رقمية، بينما الأنيميشن الكامل كله مبني من الصفر بالكمبيوتر.</p>
-        </div>
-        <div class="split-card">
-          <h3>شغل جماعي</h3>
-          <p>ما أحد يسوي كل شي لحاله. كل مشهد يمر على عدة فنانين، كل وحد مختص بجزء (تتبع، موديلينغ، إضاءة، دمج)، وبعدين يجمعون الشغل مع بعض.</p>
-        </div>
-        <div class="split-card">
-          <h3>الهدف: ما يبين مصطنع</h3>
-          <p>أنجح شغل VFX هو اللي المشاهد ما ينتبه له، يعني يبين حقيقي 100% حتى لو المشهد كله مستحيل بالواقع.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="tracks">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-tag">الاختصاصات</div>
-      <h2>المسارات اللي تختار منها</h2>
-      <p>مجال الـ VFX مو تخصص وحد، هو مجموعة اختصاصات. تكدر تدخل الكورس وتجرب كل وحد، وبعدين تركز على اللي يعجبك أكثر.</p>
-    </div>
-
-    <div class="tracks">
-      <div class="track-card">
-        <div class="track-icon">Co</div>
-        <h3>Compositing — الدمج</h3>
-        <p>دمج الطبقات المختلفة (تصوير حقيقي + عناصر رقمية) بصورة وحدة متناسقة بالألوان والإضاءة.</p>
-        <div class="track-tools"><span>Nuke</span><span>After Effects</span></div>
-      </div>
-
-      <div class="track-card">
-        <div class="track-icon">3D</div>
-        <h3>Modeling & Animation</h3>
-        <p>بناء الموديلات ثلاثية الأبعاد (شخصيات، كائنات، بيئات) وتحريكها بطريقة طبيعية.</p>
-        <div class="track-tools"><span>Blender</span><span>Maya</span></div>
-      </div>
-
-      <div class="track-card">
-        <div class="track-icon">FX</div>
-        <h3>Simulation — المحاكاة</h3>
-        <p>محاكاة الظواهر الطبيعية: نار، ماي، دخان، غبار، وانفجارات تبين واقعية.</p>
-        <div class="track-tools"><span>Houdini</span></div>
-      </div>
-
-      <div class="track-card">
-        <div class="track-icon">Rt</div>
-        <h3>Roto & Tracking</h3>
-        <p>فصل العناصر عن خلفيتها بدقة، وتتبع حركة الكاميرا عشان العناصر الرقمية تنحط بمكانها الصح.</p>
-        <div class="track-tools"><span>Mocha</span><span>Nuke</span></div>
-      </div>
-
-      <div class="track-card">
-        <div class="track-icon">Rn</div>
-        <h3>Lighting & Rendering</h3>
-        <p>إضاءة المشهد الرقمي عشان يتناسق مع التصوير الحقيقي، ثم إخراج الصورة النهائية بجودة عالية.</p>
-        <div class="track-tools"><span>Arnold</span><span>V-Ray</span></div>
-      </div>
-
-      <div class="track-card">
-        <div class="track-icon">Ed</div>
-        <h3>Pipeline & Editing</h3>
-        <p>تنظيم سير العمل بين الفنانين، وربط كل مرحلة بالمرحلة اللي بعدها لين توصل للمشهد النهائي.</p>
-        <div class="track-tools"><span>ShotGrid</span><span>Premiere</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="roadmap">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-tag">خطة التعلم</div>
-      <h2>خطة ١٢ أسبوع، خطوة بخطوة</h2>
-      <p>ما نبدأ بالمعقد. نبدأ بالأساسيات، وكل أسبوع نبني على اللي قبله.</p>
-    </div>
-
-    <div class="roadmap">
-      <div class="week">
-        <div class="week-num">١-٢</div>
-        <div class="week-body">
-          <h3>الأساسيات ولغة الصورة</h3>
-          <p>تتعلم مفاهيم أساسية: الألوان، الإضاءة، الـ Resolution، وشلون تشتغل الكاميرات بالتصوير السينمائي.</p>
-        </div>
-      </div>
-      <div class="week">
-        <div class="week-num">٣-٤</div>
-        <div class="week-body">
-          <h3>Tracking & Rotoscoping</h3>
-          <p>تتعلم شلون تتبع حركة الكاميرا وتفصل العناصر عن خلفيتها بدقة — أول خطوة عملية بأي مشهد VFX.</p>
-        </div>
-      </div>
-      <div class="week">
-        <div class="week-num">٥-٧</div>
-        <div class="week-body">
-          <h3>3D Modeling & Animation</h3>
-          <p>تبدأ ببرنامج Blender أو Maya، تسوي موديلات بسيطة، وتتعلم أساسيات التحريك.</p>
-        </div>
-      </div>
-      <div class="week">
-        <div class="week-num">٨-٩</div>
-        <div class="week-body">
-          <h3>Simulation الأساسية</h3>
-          <p>تجرب محاكاة بسيطة للنار والدخان والماي بـ Houdini، وتفهم شلون تتحكم بالفيزياء الرقمية.</p>
-        </div>
-      </div>
-      <div class="week">
-        <div class="week-num">١٠-١١</div>
-        <div class="week-body">
-          <h3>Compositing المتقدم</h3>
-          <p>تتعلم دمج كل الطبقات مع بعض بـ Nuke، وتضبط الألوان والإضاءة عشان المشهد يبين وحدة متكاملة.</p>
-        </div>
-      </div>
-      <div class="week">
-        <div class="week-num">١٢</div>
-        <div class="week-body">
-          <h3>مشروع التخرج</h3>
-          <p>تسوي مشهد VFX كامل من الصفر — من التصوير الخام لين الإخراج النهائي — وتضيفه لـ Reel خاص فيك.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="tools">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-tag">البرامج</div>
-      <h2>الأدوات اللي راح تستخدمها</h2>
-      <p>ما تحتاج تتعلم كلهم مرة وحدة. كل مرحلة بالخطة لها برنامجها المناسب.</p>
-    </div>
-    <div class="tools-grid">
-      <div class="tool-pill">Nuke</div>
-      <div class="tool-pill">Blender</div>
-      <div class="tool-pill">Houdini</div>
-      <div class="tool-pill">Maya</div>
-      <div class="tool-pill">After Effects</div>
-      <div class="tool-pill">Mocha Pro</div>
-      <div class="tool-pill">DaVinci Resolve</div>
-      <div class="tool-pill">Substance Painter</div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <div class="cta-box">
-      <h2>خلك جاهز، وابدأ من أول أسبوع</h2>
-      <p>الكورس مبني عشان أي شخص يكدر يبدأ، حتى لو ما عنده خلفية بالتصميم أو البرمجة.</p>
-      <a href="#roadmap" class="btn btn-primary">رجعني لخطة الأسابيع</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span>كورس VFX — محتوى تعليمي</span>
-    <span>مبني بالعربية بلهجاتها</span>
-  </div>
-</footer>
+    // تحديث تلقائي كل 5 ثواني
+    setInterval(loadRuns, 5000);
+    loadRuns();
+  </script>
 
 </body>
 </html>
