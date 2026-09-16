@@ -1,15 +1,14 @@
 {
-  "name": "vfx-course-site",
+  "name": "workflow-portal",
   "version": "1.0.0",
-  "description": "موقع كورس تعليم الـ VFX",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.18.0",
+    "octokit": "^3.1.0",
+    "better-sqlite3": "^9.0.0",
+    "dotenv": "^16.0.0"
   }
 }
